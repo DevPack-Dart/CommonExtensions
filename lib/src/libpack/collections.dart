@@ -15,13 +15,10 @@ class BijectiveFiniteSets<D, C>{
   Map<D, C> _surjection = <D, C>{};
   Map<C, D> _injection = <C, D>{};
   BijectiveFiniteSets();
-  BijectiveFiniteSets(Iterable<Pair<D, C>> pairs) {
+  factory BijectiveFiniteSets.withIter(Iterable<Pair<D, C>> pairs) {
     BijectiveFiniteSets temp = BijectiveFiniteSets();
     temp.addAll(pairs);
-    this._domain = temp.domain;
-    this._codomain = temp.codomain;
-    this._surjection = temp.surjection;
-    this._injection = temp.injection;
+    return temp;
   }
   void add(D d, C c){
     if(this._domain.contains(d)){
